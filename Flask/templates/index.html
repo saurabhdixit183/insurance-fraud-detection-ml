@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Insurance Fraud Detection</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:80px 20px 40px;
+}
+
+.hero h1{
+font-size:55px;
+}
+
+.hero span{
+color:#f0b429;
+}
+
+.hero p{
+margin-top:15px;
+opacity:.75;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.6;
+}
+
+/* FORM CARD */
+
+.container{
+width:96%;
+max-width:1700px;
+margin:40px auto;
+padding:70px;
+border-radius:16px;
+background:linear-gradient(145deg,#111,#0c0c0c);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.container h2{
+text-align:center;
+margin-bottom:55px;
+font-size:40px;
+color:#f0b429;
+}
+
+/* GRID */
+
+.form-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:45px;
+}
+
+.form-group{
+display:flex;
+flex-direction:column;
+}
+
+/* LABEL */
+
+.form-group label{
+font-size:18px;
+font-weight:700;
+margin-bottom:10px;
+color:#f5f5f5;
+}
+
+/* INPUT */
+
+.form-group input{
+padding:18px;
+font-size:16px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.18);
+background:#0f0f0f;
+color:white;
+outline:none;
+transition:.25s;
+}
+
+.form-group input:focus{
+border-color:#f0b429;
+box-shadow:0 0 10px rgba(240,180,40,.45);
+}
+
+/* BUTTON */
+
+.submit-btn{
+margin-top:55px;
+width:100%;
+padding:22px;
+font-size:20px;
+border:none;
+border-radius:10px;
+background:linear-gradient(45deg,#f0b429,#ffcc4d);
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:.25s;
+}
+
+.submit-btn:hover{
+transform:scale(1.02);
+box-shadow:0 0 18px rgba(240,180,40,.45);
+}
+
+/* RESULT */
+
+.result{
+margin-top:40px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.prediction-box{
+display:flex;
+align-items:center;
+gap:18px;
+font-size:26px;
+font-weight:600;
+}
+
+.legal{
+background:linear-gradient(45deg,#28a745,#5cd67c);
+padding:10px 24px;
+border-radius:8px;
+color:white;
+}
+
+.fraud{
+background:linear-gradient(45deg,#dc3545,#ff5f6d);
+padding:10px 24px;
+border-radius:8px;
+color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:1100px){
+
+.form-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.hero h1{
+font-size:38px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<section class="hero">
+
+<h1>Insurance <span>Fraud Detection</span></h1>
+
+<p>
+Machine Learning system that predicts whether an insurance claim
+is legitimate or fraudulent using historical fraud patterns.
+</p>
+
+</section>
+
+
+<div class="container">
+
+<h2>Insurance Fraud Detection</h2>
+
+<form action="/predict" method="POST">
+
+<div class="form-grid">
+
+<div class="form-group"><label>months_as_customer</label><input name="months_as_customer"></div>
+<div class="form-group"><label>policy_number</label><input name="policy_number"></div>
+<div class="form-group"><label>policy_bind_date</label><input name="policy_bind_date"></div>
+<div class="form-group"><label>policy_state</label><input name="policy_state"></div>
+
+<div class="form-group"><label>policy_csl</label><input name="policy_csl"></div>
+<div class="form-group"><label>policy_deductable</label><input name="policy_deductable"></div>
+<div class="form-group"><label>policy_annual_premium</label><input name="policy_annual_premium"></div>
+<div class="form-group"><label>insured_zip</label><input name="insured_zip"></div>
+
+<div class="form-group"><label>insured_sex</label><input name="insured_sex"></div>
+<div class="form-group"><label>insured_education_level</label><input name="insured_education_level"></div>
+<div class="form-group"><label>insured_occupation</label><input name="insured_occupation"></div>
+<div class="form-group"><label>insured_hobbies</label><input name="insured_hobbies"></div>
+
+<div class="form-group"><label>insured_relationship</label><input name="insured_relationship"></div>
+<div class="form-group"><label>capital_gains</label><input name="capital_gains"></div>
+<div class="form-group"><label>capital_loss</label><input name="capital_loss"></div>
+<div class="form-group"><label>incident_date</label><input name="incident_date"></div>
+
+<div class="form-group"><label>incident_month</label><input name="incident_month"></div>
+<div class="form-group"><label>incident_type</label><input name="incident_type"></div>
+<div class="form-group"><label>collision_type</label><input name="collision_type"></div>
+<div class="form-group"><label>incident_severity</label><input name="incident_severity"></div>
+
+<div class="form-group"><label>authorities_contacted</label><input name="authorities_contacted"></div>
+<div class="form-group"><label>incident_state</label><input name="incident_state"></div>
+<div class="form-group"><label>incident_city</label><input name="incident_city"></div>
+<div class="form-group"><label>incident_location</label><input name="incident_location"></div>
+
+<div class="form-group"><label>incident_hour_of_the_day</label><input name="incident_hour_of_the_day"></div>
+<div class="form-group"><label>number_of_vehicles_involved</label><input name="number_of_vehicles_involved"></div>
+<div class="form-group"><label>property_damage</label><input name="property_damage"></div>
+<div class="form-group"><label>bodily_injuries</label><input name="bodily_injuries"></div>
+
+<div class="form-group"><label>witnesses</label><input name="witnesses"></div>
+<div class="form-group"><label>police_report_available</label><input name="police_report_available"></div>
+<div class="form-group"><label>total_claim_amount</label><input name="total_claim_amount"></div>
+<div class="form-group"><label>auto_make</label><input name="auto_make"></div>
+
+<div class="form-group"><label>auto_model</label><input name="auto_model"></div>
+<div class="form-group"><label>auto_year</label><input name="auto_year"></div>
+
+</div>
+
+<button class="submit-btn">Predict</button>
+
+</form>
+
+
+<div class="result">
+
+{% if predict %}
+
+<div class="prediction-box">
+
+<span>Prediction :</span>
+
+{% if predict == "Legal Insurance Claim" %}
+<span class="legal">{{ predict }}</span>
+{% else %}
+<span class="fraud">{{ predict }}</span>
+{% endif %}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+</html>
